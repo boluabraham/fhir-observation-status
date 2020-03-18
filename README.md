@@ -1,22 +1,28 @@
 # \<fhir-observation-status\>
 
- the fhir-observation-status displays the current status of an observation. Options includes registered,preliminary,final and amended
- * Uses select to choose options.
- * In typical use, just use &lt;fhir-observation-status&gt; url="" &lt;fhir-observation-status&gt;
-## Install the Polymer-CLI
+The fhir-observation-status displays the current status of an observation. 
+The fhir-active-status component is used to determine whether the record is in active use. It is commonly used
+as a form field. It uses input type "select" and iron-ajax.It is a coded concept in FHIR and hence hard-coded into the pattern.
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.
+### Functionality
+  Default : shows a selectable input field for `display`. Options includes registered,preliminary,final and amended.
+ ######a. GET:
+ * It selects option from available select options when it receives a value. `value` can be passed as a string.
+ * It can also receive value from a 'url' which can be passed as property "url". The `obsStatus` key value is checked for  in key-value pair of data.
+  * If it does not receive any matching value, it shows blank.
+ * Setting `obsStatus` property as true or false can help show and hide this component.
+ ######b. SET:
+ * A selection of option sets the value of the component used for posting purposes.
 
-## Viewing Your Element
-
-```
-$ polymer serve
-```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+### Properties of fhir-observation-status
+ * `value`:`Object` - used to take the input value of each field.
+ * `url`:`String` - used to make AJAX call to FHIR resource. Default: null.
+ * `obsStatus`:`String` - selectable option for the status of the observation. Use this property to show/hide. Default: true.
+ ### License
+ Mozilla Public License, v. 2.0.
+ 
+ ### Typical Use:
+ * With url:
+ `<fhir-observation-status url=""></fhir-observation-status>`
+ * Without url:
+  `<fhir-observation-status></fhir-observation-status>`

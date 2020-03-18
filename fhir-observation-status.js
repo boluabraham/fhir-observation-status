@@ -19,7 +19,7 @@ import '@polymer/iron-ajax/iron-ajax.js'
 class FhirObservationStatus extends LitElement {
   static get properties() {
     return {
-    typefield: String,
+    obsStatus: String,
     url:String,
     value: Object
     };
@@ -27,20 +27,20 @@ class FhirObservationStatus extends LitElement {
   
   constructor(){
     super();
-    this.typefield = "true";
+    this.obsStatus = 'true';
     this.value= {};
   }
 
-  _render({typefield,url,value}){
+  _render({obsStatus,url,value}){
     return html`
     <div id="obsDiv">
-    ${typefield !== 'false' ? html`
+    ${obsStatus !== 'false' ? html`
       <label>Observation Status</label>
-      <select class="typefield" value="${this.value}" on-change="${e => this.value = e.target.value}">
-          <option value="registered ">registered </option>
-          <option value="preliminary ">preliminary </option>
-          <option value="final">final</option>
-          <option value="amended">amended</option>
+      <select class="obsClass" value="${this.value}" on-change="${e => this.value = e.target.value}">
+          <option value="registered">Registered </option>
+          <option value="preliminary">Preliminary </option>
+          <option value="final">Final</option>
+          <option value="amended">Amended</option>
       </select>` : ''}
       </div>
       <iron-ajax id="ajax" bubbles auto handle-as="json" url="${url}"></iron-ajax>
