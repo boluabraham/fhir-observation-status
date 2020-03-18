@@ -1,6 +1,6 @@
 # \<fhir-observation-status\>
 
- The fhir-observation-status displays the current status of an observation. Options includes registered,preliminary,final and amended
+ The fhir-observation-status displays the current status of an observation. Options includes registered,preliminary,final and amended.
  Uses select to choose options.
  * In typical use, just use &lt;fhir-observation-status&gt; url="" &lt;fhir-observation-status&gt;
 ## Install the Polymer-CLI
