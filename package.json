@@ -1,0 +1,21 @@
+{
+  "name": "fhir-observation-status",
+  "description": " the fhir-observation-status displays the current status of f an observation . options includes registered,preliminary,final and amended",
+  "main": "fhir-observation-status.js",
+  "dependencies": {
+    "@material/mwc-list": "^0.13.0",
+    "@material/mwc-select": "^0.13.0",
+    "@material/mwc-textfield": "^0.13.0",
+    "@polymer/iron-ajax": "^3.0.1",
+    "@polymer/lit-element": "^0.5.2",
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "wct-mocha": "^1.0.1"
+  }
+}
