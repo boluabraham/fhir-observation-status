@@ -1,7 +1,7 @@
 # \<fhir-observation-status\>
 
 The fhir-observation-status displays the current status of an observation. 
-The fhir-active-status component is used to determine whether the record is in active use. It is commonly used
+The fhir-observation-status component is used to determine whether the record is in active use. It is commonly used
 as a form field. It uses input type "select" and iron-ajax.It is a coded concept in FHIR and hence hard-coded into the pattern.
 
 ### Functionality
