@@ -6,6 +6,7 @@ as a form field. It uses input type "select" and iron-ajax.It is a coded concept
 
 ### Functionality
   Default : shows a selectable input field for `display`. Options includes registered,preliminary,final and amended.
+  
  ######a. GET:
  * It selects option from available select options when it receives a value. `value` can be passed as a string.
  * It can also receive value from a 'url' which can be passed as property "url". The `obsStatus` key value is checked for  in key-value pair of data.
