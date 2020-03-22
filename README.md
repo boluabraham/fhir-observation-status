@@ -12,6 +12,7 @@ as a form field. It uses input type "select" and iron-ajax.It is a coded concept
  * It can also receive value from a 'url' which can be passed as property "url". The `obsStatus` key value is checked for  in key-value pair of data.
   * If it does not receive any matching value, it shows blank.
  * Setting `obsStatus` property as true or false can help show and hide this component.
+ 
  ######b. SET:
  * A selection of option sets the value of the component used for posting purposes.
 
