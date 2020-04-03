@@ -11,6 +11,8 @@
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="../node_modules/sinon/pkg/sinon.js"></script>
+
 
 
     <script type="module" src="../fhir-observation-status.js"></script>
@@ -18,20 +20,20 @@
   <body>
     <test-fixture id="DefaultElement">
         <template>
-            <fhir-allergy-criticality url="/load_patient_data"></fhir-allergy-criticality>
+            <fhir-observation-status url="/load_patient_data"></fhir-observation-status>
         </template>
     </test-fixture>
     <dom-bind>
         <test-fixture id="SetValue">
             <template>
-                <fhir-allergy-criticality id="fhirObservation" value="[[observation]]"></fhir-allergy-criticality>
+                <fhir-observation-status id="fhirObservation" value="[[observation]]"></fhir-observation-status>
             </template>
         </test-fixture>
     </dom-bind>
     
     
     <script type="module">
-        import observation from 'observation.js';
+        import observation from '../observation.js';
     
         suite('<iron-ajax>', function () {
             var ajax;
@@ -58,12 +60,13 @@
             suite('fhir-observation-status tests', function () {
                 setup(function () {
                     alltype = fixture('DefaultElement');
+                    
                 });
                 test('observation status is accurate ', function () {
                     alltype.addEventListener('iron-ajax-response', function (done) {
                         flush(function () {
                         var type = alltype.shadowRoot.querySelectorAll('.obsClass')[0].value;
-                        assert.equal(type, "registered");
+                        assert.equal(type, "final");
                         assert.notEqual(type, "preliminary");
                         done();
                     });
@@ -73,7 +76,7 @@
                     document.querySelector('dom-bind').set('observation', observation.status);
                     flush(function () {
                         let typ = document.getElementById('fhirObservation').shadowRoot.querySelectorAll('.obsClass')[0].value;
-                        assert.equal(typ, "registered");
+                        assert.equal(typ, "final");
                         assert.notEqual(typ, "preliminary");
                         done();
                     });
